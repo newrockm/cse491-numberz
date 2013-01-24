@@ -7,7 +7,11 @@ def _is_prime(primes, n):
     return True
 
 def primes():
+    # first iteration, return 2 as the first prime number
     primeslist = [2]
+    yield 2
+
+    # subsequent iterations build off of previously determined primes
     start = primeslist[-1] + 1
     while 1:
         if _is_prime(primeslist, start):

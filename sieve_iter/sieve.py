@@ -2,8 +2,7 @@
 
 class primes(object):
     def __init__(self):
-        self.primeslist = [2]
-        self.start = self.primeslist[-1] + 1
+        self.primeslist = []
 
     def __iter__(self):
         return self
@@ -15,6 +14,11 @@ class primes(object):
         return True
 
     def next(self):
+        if len(self.primeslist) == 0:
+            self.primeslist.append(2)
+            return 2
+
+        self.start = self.primeslist[-1] + 1
         while 1:
             if self._is_prime(self.start):
                 self.primeslist.append(self.start)
